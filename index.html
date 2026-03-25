@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kodevia - Punto de Venta Inteligente para Retail en Aguascalientes</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- VARIABLES DE DISEÑO (UI System) --- */
+        :root {
+            --primary: #111827;       /* Negro casi puro (Texto principal) */
+            --secondary: #6B7280;     /* Gris (Texto secundario) */
+            --accent-blue: #3B82F6;   /* Azul Eléctrico (Confianza, Tech) */
+            --accent-green: #10B981;  /* Verde Lima/Neón (Acción, Crecimiento) */
+            --bg-light: #FFFFFF;      /* Fondo puro */
+            --bg-subtle: #F9FAFB;     /* Fondo sutil (secciones) */
+            --border: #E5E7EB;        /* Bordes sutiles */
+            
+            --font-main: 'Inter', sans-serif;
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease;
+        }
+
+        /* --- RESET BÁSICO --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--primary);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; display: block; }
+
+        /* --- UTILIDADES --- */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section { padding: 80px 0; }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-green);
+            color: white;
+        }
+        .btn-primary:hover { background-color: #059669; transform: translateY(-2px); }
+
+        .btn-secondary {
+            background-color: white;
+            color: var(--accent-blue);
+            border: 2px solid var(--accent-blue);
+        }
+        .btn-secondary:hover { background-color: #EFF6FF; }
+
+        .highlight-blue { color: var(--accent-blue); font-weight: 700; }
+        .highlight-green { color: var(--accent-green); font-weight: 600; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;}
+
+        h1, h2, h3 { font-weight: 800; letter-spacing: -0.025em; margin-bottom: 1rem; }
+        h1 { font-size: 3rem; line-height: 1.1; }
+        h2 { font-size: 2.25rem; text-align: center; margin-bottom: 3rem;}
+        p { color: var(--secondary); font-size: 1.1rem; margin-bottom: 1.5rem; }
+
+        /* --- 1. HEADER & NAV --- */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(5px);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+        .logo span { color: var(--accent-blue); }
+
+        .nav-menu { display: flex; gap: 30px; align-items: center; }
+        .nav-link { font-weight: 500; color: var(--primary); font-size: 0.95rem; }
+        .nav-link:hover { color: var(--accent-blue); }
+
+        /* --- 2. HERO SECTION --- */
+        .hero {
+            background-color: var(--bg-subtle);
+            padding: 160px 0 100px 0; /* Espacio para el header fijo */
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-text h1 { margin-bottom: 1.5rem; }
+        .hero-btns { display: flex; gap: 15px; margin-top: 2rem; }
+        .hero-subtext { font-size: 0.9rem; color: #9CA3AF; margin-top: 10px;}
+
+        /* Placeholder para Mockup Visual (Simulando Angular UI) */
+        .hero-visual {
+            background: linear-gradient(135deg, #DBEAFE 0%, #FFFFFF 100%);
+            padding: 20px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+        }
+        .mockup-screen {
+            background-color: white;
+            height: 350px;
+            border-radius: 12px;
+            border: 4px solid #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #9CA3AF;
+            font-weight: 600;
+        }
+        .mockup-phone {
+            width: 120px;
+            height: 240px;
+            background: white;
+            border: 4px solid #333;
+            border-radius: 20px;
+            position: absolute;
+            bottom: -30px;
+            left: -30px;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #9CA3AF;
+            font-size: 0.8rem;
+        }
+
+        /* --- 3. PROBLEMS SECTION --- */
+        .problems { background-color: var(--bg-light); }
+        
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .problem-card {
+            background: var(--bg-subtle);
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: var(--transition);
+        }
+        .problem-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: var(--accent-blue); }
+
+        .icon-box {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #EF4444; /* Rojo para dolor */
+        }
+        .problem-card h3 { font-size: 1.5rem; color: var(--primary); }
+        .problem-card p { font-size: 1rem; margin-bottom: 0; }
+
+        /* --- 4. SOLUTIONS SECTION (Showcase UI) --- */
+        .solutions { background-color: var(--bg-subtle); }
+
+        .solution-block {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+        .solution-block:last-child { margin-bottom: 0; }
+        .solution-block.reversed { direction: rtl; } /* Invertir orden */
+        .solution-block.reversed .solution-text { direction: ltr; } /* Restaurar texto */
+
+        .solution-visual {
+            background: white;
+            padding: 15px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-md);
+        }
+        .ui-placeholder {
+            background-color: #F3F4F6;
+            height: 300px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #9CA3AF;
+        }
+
+        .sol-icon { color: var(--accent-blue); font-size: 1.5rem; margin-bottom: 10px; display: block;}
+        .solution-text h3 { font-size: 1.8rem; }
+
+        /* --- 5. TESTIMONIALS --- */
+        .testimonials { background-color: var(--bg-light); }
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .testimonial-card {
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: white;
+            position: relative;
+        }
+        .quote-icon {
+            font-size: 3rem;
+            color: #DBEAFE;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-family: serif;
+        }
+        .testimonial-card p { position: relative; z-index: 1; color: var(--primary); font-style: italic; }
+        .client-info { display: flex; align-items: center; gap: 15px; margin-top: 20px; }
+        .client-img { width: 50px; height: 50px; background: #E5E7EB; border-radius: 50%; }
+        .client-name { font-weight: 700; color: var(--primary); }
+        .client-biz { font-size: 0.85rem; color: var(--secondary); }
+
+        /* --- 6. PRICING --- */
+        .pricing { background-color: var(--bg-subtle); }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            align-items: start;
+        }
+        .pricing-card {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            transition: var(--transition);
+            position: relative;
+        }
+        .pricing-card.featured {
+            border: 2px solid var(--accent-blue);
+            box-shadow: var(--shadow-lg);
+            transform: scale(1.03);
+        }
+        .popular-tag {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--accent-blue);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .plan-name { font-weight: 700; color: var(--accent-blue); text-transform: uppercase; letter-spacing: 1px; }
+        .plan-price { font-size: 3rem; font-weight: 800; margin: 15px 0; color: var(--primary); }
+        .plan-price span { font-size: 1rem; color: var(--secondary); font-weight: 400; }
+        
+        .plan-features { margin: 30px 0; border-top: 1px solid var(--border); padding-top: 20px;}
+        .plan-features li { margin-bottom: 12px; color: var(--secondary); display: flex; align-items: center; gap: 10px; font-size: 0.95rem;}
+        .plan-features li::before { content: '✓'; color: var(--accent-green); font-weight: 800; }
+
+        .pricing-card .btn { width: 100%; margin-top: 10px;}
+
+        /* --- 7. TECHNICAL FACTOR --- */
+        .tech { background-color: var(--bg-light); text-align: center;}
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 50px;
+        }
+        .tech-item {
+            padding: 20px;
+            background: var(--bg-subtle);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+        .tech-icon { font-size: 1.2rem; margin-bottom: 5px; font-weight: 700;}
+
+        /* --- 8. FINAL CTA --- */
+        .final-cta {
+            background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+        }
+        .final-cta h2 { color: white; font-size: 2.5rem; margin-bottom: 1rem;}
+        .final-cta p { color: #DBEAFE; margin-bottom: 2rem;}
+        .final-cta .btn { background-color: white; color: var(--accent-blue); font-size: 1.1rem; padding: 15px 30px;}
+        .final-cta .btn:hover { background-color: #F9FAFB; transform: scale(1.05);}
+
+        /* --- 9. FOOTER --- */
+        footer {
+            background-color: var(--primary);
+            color: #9CA3AF;
+            padding: 50px 0;
+            font-size: 0.9rem;
+        }
+        .footer-grid {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer-links { display: flex; gap: 20px; }
+        .footer-links a:hover { color: white; }
+
+        /* --- RESPONSIVE (Media Queries) --- */
+        @media (max-width: 1024px) {
+            h1 { font-size: 2.5rem; }
+            .hero-grid, .solution-block { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+            .hero-btns { justify-content: center; }
+            .hero-visual, .solution-visual { max-width: 600px; margin: 0 auto; }
+            .solution-block.reversed { direction: ltr; }
+            .pricing-grid, .tech-grid { grid-template-columns: 1fr 1fr; }
+            .pricing-card.featured { transform: scale(1); margin: 10px 0;}
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu { display: none; } /* En producción usarías un menú hamburguesa */
+            .problem-grid, .testimonial-grid { grid-template-columns: 1fr; }
+            .section { padding: 60px 0; }
+            h2 { font-size: 1.8rem; }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 2rem; }
+            .hero-btns { flex-direction: column; gap: 10px; }
+            .pricing-grid, .tech-grid { grid-template-columns: 1fr; }
+            .footer-grid { flex-direction: column; gap: 20px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="#" class="logo">Kode<span>via</span></a>
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="#features" class="nav-link">Características</a></li>
+                        <li><a href="#pricing" class="nav-link">Precios</a></li>
+                        <li><a href="#tech" class="nav-link">Soporte</a></li>
+                        <li><a href="#cta" class="btn btn-secondary nav-btn">Solicitar Demo</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <span class="highlight-green">El futuro del retail, hoy.</span>
+                <h1>Toma el control total de tu abarrotera con el <span class="highlight-blue">Punto de Venta</span> más rápido.</h1>
+                <p>Olvídate de los descuadres de caja y el inventario infinito. Kodevia es la plataforma en la nube diseñada para comercios de alto volumen que buscan eficiencia y crecimiento real.</p>
+                <div class="hero-btns">
+                    <a href="#cta" class="btn btn-primary">Ver Demo en Vivo</a>
+                </div>
+                <p class="hero-subtext">Instalación en minutos • Soporte local en Aguascalientes</p>
+            </div>
+            <div class="hero-visual">
+                <div class="mockup-screen">
+                    [ Interfaz de Cobro Rápido - UI Angular ]
+                </div>
+                <div class="mockup-phone">
+                    [ App Dueño - Ionic ]
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="section problems">
+        <div class="container">
+            <h2>¿Cansado de sistemas lentos que detienen tu venta?</h2>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="icon-box">⏳</div>
+                    <h3>Filas lentas</h3>
+                    <p>Tu sistema actual se traba cuando hay mucha gente. Pierdes clientes y paciencia en hora pico.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="icon-box">📦</div>
+                    <h3>Inventario fantasma</h3>
+                    <p>No sabes qué tienes en bodega realmente. Compras de más o te quedas sin stock clave.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="icon-box">❓</div>
+                    <h3>Cifras ciegas</h3>
+                    <p>Hacer un corte de caja es una pesadilla y no sabes cuál es tu ganancia real del día.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section solutions">
+        <div class="container">
+            <h2>La potencia que tu negocio necesita</h2>
+
+            <div class="solution-block">
+                <div class="solution-visual">
+                    <div class="ui-placeholder">[ Mockup Pantalla de Ventas - Angular 20+ ]</div>
+                </div>
+                <div class="solution-text">
+                    <span class="sol-icon">⚡</span>
+                    <h3>Cobros a la velocidad de la luz.</h3>
+                    <p>Nuestra interfaz optimizada garantiza transacciones en milisegundos. Soporta miles de SKUs sin despeinarse. Tus cajeros amarán la simplicidad; tus clientes amarán la rapidez.</p>
+                </div>
+            </div>
+
+            <div class="solution-block reversed">
+                <div class="solution-visual">
+                    <div class="ui-placeholder">[ Mockup Gestión Inventario - SpringBoot Power ]</div>
+                </div>
+                <div class="solution-text">
+                    <span class="sol-icon">📊</span>
+                    <h3>Inventario inteligente y omnicanal.</h3>
+                    <p>Controla miles de productos, gestiona proveedores y recibe alertas de stock bajo automáticamente. La potencia de un backend robusto cuidando tus activos.</p>
+                </div>
+            </div>
+
+            <div class="solution-block">
+                <div class="solution-visual">
+                    <div class="ui-placeholder" style="height: 350px;">[ Mockup App Móvil - Ionic 8 ]</div>
+                </div>
+                <div class="solution-text">
+                    <span class="sol-icon">📱</span>
+                    <h3>Tu negocio en tu bolsillo. Literalmente.</h3>
+                    <p>Revisa ventas en tiempo real, autoriza movimientos especiales y monitorea cortes de caja desde nuestra App móvil de alta fidelidad, estés donde estés.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section testimonials">
+        <div class="container">
+            <h2>Comercios en Aguascalientes ya confían</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <span class="quote-icon">“</span>
+                    <p>Antes tardábamos horas en el inventario. Con Kodevia lo hacemos en minutos y el cobro es mucho más rápido. Recuperé mi tranquilidad.</p>
+                    <div class="client-info">
+                        <div class="client-img"></div>
+                        <div>
+                            <div class="client-name">Eduardo G.</div>
+                            <div class="client-biz">Abarrotes Don Lalo, Calvillo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <span class="quote-icon">“</span>
+                    <p>La App para el celular es increíble. Puedo ver cuánto he vendido en el día sin estar en la tienda. Excelente servicio técnico local.</p>
+                    <div class="client-info">
+                        <div class="client-img"></div>
+                        <div>
+                            <div class="client-name">Doña María</div>
+                            <div class="client-biz">MiniSuper Central</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <span class="quote-icon">“</span>
+                    <p>Soporta mi catálogo de más de 5,000 productos sin ponerse lento. Es el sistema más robusto que he usado. Vale cada centavo.</p>
+                    <div class="client-info">
+                        <div class="client-img"></div>
+                        <div>
+                            <div class="client-name">Ing. Luis F.</div>
+                            <div class="client-biz">SuperKompras Local</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="section pricing">
+        <div class="container">
+            <h2>Un plan para cada etapa</h2>
+            <div class="pricing-grid">
+                
+                <div class="pricing-card">
+                    <div class="plan-name">Emprendedor</div>
+                    <div class="plan-price">$499<span>/mes</span></div>
+                    <p>Ideal para tiendas pequeñas empezando a digitalizarse.</p>
+                    <ul class="plan-features">
+                        <li>1 Licencia de Caja (POS)</li>
+                        <li>Inventario Básico</li>
+                        <li>Reportes de Ventas Diarias</li>
+                        <li>Soporte vía Ticket</li>
+                    </ul>
+                    <a href="#cta" class="btn btn-secondary">Elegir Plan</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="popular-tag">Más Popular</div>
+                    <div class="plan-name">Negocio</div>
+                    <div class="plan-price">$899<span>/mes</span></div>
+                    <p>Para comercios con alto flujo y necesidad de control total.</p>
+                    <ul class="plan-features">
+                        <li>Cajas Ilimitadas</li>
+                        <li>Inventario Avanzado y Alertas</li>
+                        <li><b>App de Dueño (Móvil) Incluida</b></li>
+                        <li>Facturación Electrónica</li>
+                        <li>Soporte Telefónico Prioritario</li>
+                    </ul>
+                    <a href="#cta" class="btn btn-primary">Elegir Plan</a>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="plan-name">Corporativo</div>
+                    <div class="plan-price">Cotizar</div>
+                    <p>Soluciones a medida para cadenas o multi-sucursales.</p>
+                    <ul class="plan-features">
+                        <li>Todo lo del plan Negocio</li>
+                        <li>Multi-sucursal Sincronizado</li>
+                        <li>Almacén Central</li>
+                        <li>Integraciones API</li>
+                        <li>Gerente de cuenta dedicado</li>
+                    </ul>
+                    <a href="#cta" class="btn btn-secondary">Contactar Ventas</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="tech" class="section tech">
+        <div class="container">
+            <h2>Tecnología de punta para una estabilidad total</h2>
+            <p style="max-width: 700px; margin: 0 auto 40px auto;">No reciclamos software viejo. Construimos Kodevia desde cero con los estándares más exigentes para garantizarte seguridad y 99.9% de tiempo de actividad.</p>
+            <div class="tech-grid">
+                <div class="tech-item"><div class="tech-iconhighlight-blue">🅰</div>Interfaz Angular Reactiva</div>
+                <div class="tech-item"><div class="tech-iconhighlight-blue">☕</div>Backend Java Seguro</div>
+                <div class="tech-item"><div class="tech-iconhighlight-blue">📱</div>App Ionic Nativa</div>
+                <div class="tech-item"><div class="tech-iconhighlight-blue">☁</div>Nube AWS Sincronizada</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cta" class="final-cta">
+        <div class="container">
+            <h2>¿Listo para dejar de perder dinero y empezar a crecer?</h2>
+            <p>Agenda una demo gratuita de 15 minutos. Te mostramos cómo Kodevia se adapta a tu tienda.</p>
+            <a href="#" class="btn">Agendar mi Demo Gratuita Ahora</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="logo" style="color: white;">Kode<span>via</span></div>
+            <p>&copy; 2023 Kodevia. Todos los derechos reservados.</p>
+            <div class="footer-links">
+                <a href="#">Privacidad</a>
+                <a href="#">Términos</a>
+            </div>
+        </div>
+        <div class="container" style="text-align: center; margin-top: 20px; font-size: 0.8rem;">
+            Hecho con ❤️ en Calvillo, Aguascalientes.
+        </div>
+    </footer>
+
+</body>
+</html>
