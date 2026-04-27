@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Kodevia desarrolla puntos de venta, sistemas web, apps móviles y tiendas en línea a precios accesibles para emprendedores, comercios y empresas." />
-  <meta name="keywords" content="punto de venta, sistemas para negocio, páginas web, apps móviles, venta en línea, software para emprendedores, Kodevia" />
-  <title>Kodevia | Sistemas, Webs, Apps y Venta en Línea para Negocios</title>
+  <meta name="description" content="Kodevia implementa puntos de venta, sistemas web, apps móviles y venta en línea para negocios que quieren controlar ventas, cortes, inventario y crecer sin pagar de más." />
+  <meta name="keywords" content="punto de venta México, sistema POS para abarrotes, POS restaurantes, sistema para tiendas, software para negocios, páginas web, apps móviles, venta en línea, Kodevia" />
+  <title>Kodevia | Punto de Venta, Webs, Apps y Sistemas para Negocios</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -124,7 +124,7 @@
     }
 
     .section-head {
-      max-width: 780px;
+      max-width: 800px;
       margin: 0 auto 46px auto;
       text-align: center;
     }
@@ -218,7 +218,7 @@
     }
 
     .logo-img {
-      width: 140px;
+      width: 150px;
       height: auto;
     }
 
@@ -229,7 +229,7 @@
     .nav-menu {
       display: flex;
       align-items: center;
-      gap: 26px;
+      gap: 24px;
     }
 
     .nav-link {
@@ -374,7 +374,7 @@
       position: absolute;
       right: -18px;
       bottom: -24px;
-      width: 220px;
+      width: 230px;
       padding: 16px;
       background: white;
       color: var(--primary);
@@ -400,7 +400,10 @@
     .services-grid,
     .equipment-grid,
     .pricing-grid,
-    .why-grid {
+    .why-grid,
+    .value-grid,
+    .addon-grid,
+    .contact-grid {
       display: grid;
       gap: 24px;
     }
@@ -413,7 +416,10 @@
     .service-card,
     .equipment-card,
     .why-card,
-    .pricing-card {
+    .pricing-card,
+    .value-card,
+    .addon-card,
+    .contact-card {
       background: white;
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
@@ -426,7 +432,10 @@
     .service-card:hover,
     .equipment-card:hover,
     .why-card:hover,
-    .pricing-card:hover {
+    .pricing-card:hover,
+    .value-card:hover,
+    .addon-card:hover,
+    .contact-card:hover {
       transform: translateY(-5px);
       box-shadow: var(--shadow-md);
       border-color: rgba(35, 136, 255, 0.26);
@@ -447,8 +456,34 @@
       background: var(--danger-soft);
     }
 
-    .services {
+    .market {
       background: var(--bg-subtle);
+    }
+
+    .value-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .value-card {
+      background: linear-gradient(180deg, #ffffff, #fbfdff);
+    }
+
+    .value-card strong {
+      display: block;
+      font-size: 1.8rem;
+      line-height: 1;
+      letter-spacing: -0.05em;
+      color: var(--accent-blue);
+      margin-bottom: 10px;
+    }
+
+    .value-card p {
+      font-size: 0.98rem;
+      margin: 0;
+    }
+
+    .services {
+      background: var(--bg-light);
     }
 
     .services-grid {
@@ -463,7 +498,10 @@
     .service-card p,
     .pain-card p,
     .equipment-card p,
-    .why-card p {
+    .why-card p,
+    .process-card p,
+    .addon-card p,
+    .contact-card p {
       font-size: 0.98rem;
       margin-bottom: 0;
     }
@@ -540,6 +578,12 @@
       font-size: 0.85rem;
     }
 
+    .equipment-card .check-list li::before,
+    .pricing-card.dark .check-list li::before {
+      background: rgba(255, 255, 255, 0.13);
+      color: #86efac;
+    }
+
     .process {
       background: var(--bg-light);
     }
@@ -578,7 +622,7 @@
     }
 
     .pricing-grid {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       align-items: stretch;
     }
 
@@ -586,11 +630,24 @@
       position: relative;
       display: flex;
       flex-direction: column;
+      padding: 26px;
     }
 
     .pricing-card.featured {
       border: 2px solid var(--accent-blue);
       box-shadow: var(--shadow-lg);
+    }
+
+    .pricing-card.dark {
+      background: #0b1628;
+      color: white;
+      border-color: rgba(255, 255, 255, 0.14);
+    }
+
+    .pricing-card.dark p,
+    .pricing-card.dark li,
+    .pricing-card.dark .plan-price span {
+      color: #dbeafe;
     }
 
     .popular-tag {
@@ -614,19 +671,44 @@
       margin-bottom: 14px;
     }
 
+    .pricing-card.dark .plan-name {
+      color: #93c5fd;
+    }
+
     .plan-price {
-      font-size: 2.8rem;
+      font-size: 2.25rem;
       line-height: 1;
       font-weight: 900;
       letter-spacing: -0.06em;
-      margin-bottom: 10px;
+      margin-bottom: 6px;
     }
 
     .plan-price span {
-      font-size: 1rem;
+      display: block;
+      margin-top: 8px;
+      font-size: 0.9rem;
       color: var(--secondary);
       letter-spacing: 0;
       font-weight: 700;
+    }
+
+    .monthly {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      width: fit-content;
+      margin: 10px 0 16px;
+      padding: 7px 11px;
+      border-radius: 999px;
+      color: var(--accent-green-dark);
+      background: rgba(16, 185, 129, 0.12);
+      font-weight: 900;
+      font-size: 0.86rem;
+    }
+
+    .pricing-card.dark .monthly {
+      color: #86efac;
+      background: rgba(16, 185, 129, 0.16);
     }
 
     .pricing-card .check-list {
@@ -636,6 +718,44 @@
     .pricing-card .btn {
       margin-top: auto;
       width: 100%;
+    }
+
+    .pricing-note {
+      margin: 30px auto 0;
+      max-width: 860px;
+      padding: 18px 20px;
+      border-radius: var(--radius-md);
+      border: 1px dashed rgba(35, 136, 255, 0.35);
+      background: white;
+      color: var(--secondary);
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .addons {
+      background: white;
+    }
+
+    .addon-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .addon-card {
+      padding: 24px;
+    }
+
+    .addon-card strong {
+      color: var(--primary);
+      display: block;
+      margin-bottom: 6px;
+      font-size: 1.1rem;
+    }
+
+    .addon-card span {
+      display: inline-block;
+      color: var(--accent-blue-dark);
+      font-weight: 900;
+      margin-bottom: 8px;
     }
 
     .why-grid {
@@ -678,6 +798,51 @@
       font-size: 2.1rem;
       line-height: 1.1;
       margin-bottom: 10px;
+    }
+
+    .map-card p {
+      color: #dbeafe;
+      margin: 0;
+    }
+
+    .contact {
+      background: var(--bg-subtle);
+    }
+
+    .contact-grid {
+      grid-template-columns: repeat(3, 1fr);
+      margin-bottom: 34px;
+    }
+
+    .contact-card {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .contact-card .icon {
+      margin-bottom: 0;
+      flex: 0 0 auto;
+    }
+
+    .contact-card a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 12px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      background: var(--bg-blue);
+      border: 1px solid rgba(35, 136, 255, 0.18);
+      color: var(--accent-blue-dark);
+      font-weight: 900;
+      word-break: break-word;
+    }
+
+    .contact-card a:hover {
+      transform: translateY(-2px);
+      background: white;
+      border-color: rgba(35, 136, 255, 0.32);
     }
 
     .final-cta {
@@ -769,6 +934,16 @@
       background: #1ebe5d;
     }
 
+    @media (max-width: 1120px) {
+      .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .addon-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
     @media (max-width: 1024px) {
       .hero-grid,
       .international-box,
@@ -777,11 +952,12 @@
       }
 
       .services-grid,
-      .why-grid {
+      .why-grid,
+      .value-grid,
+      .contact-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .pricing-grid,
       .pain-grid,
       .process-grid {
         grid-template-columns: 1fr;
@@ -809,7 +985,11 @@
 
       .services-grid,
       .why-grid,
-      .footer-grid {
+      .footer-grid,
+      .pricing-grid,
+      .value-grid,
+      .addon-grid,
+      .contact-grid {
         grid-template-columns: 1fr;
       }
 
@@ -821,6 +1001,10 @@
       .btn {
         width: 100%;
       }
+
+      .contact-card {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
@@ -830,12 +1014,12 @@
     <div class="container">
       <div class="nav-wrapper">
         <a href="#" class="logo" aria-label="Kodevia">
-          <img src="./assets/kodevia-logo.png" alt="Kodevia" class="logo-img" />
+          <img src="/assets/kodevia-logo.png" alt="Kodevia" class="logo-img" />
         </a>
 
         <nav aria-label="Navegación principal">
           <ul class="nav-menu">
-            <li><a href="#servicios" class="nav-link">Servicios</a></li>
+            <li><a href="#servicios" class="nav-link">Soluciones</a></li>
             <li><a href="#paquetes" class="nav-link">Paquetes</a></li>
             <li><a href="#equipo" class="nav-link">Equipo</a></li>
             <li><a href="#contacto" class="btn btn-secondary">Cotizar gratis</a></li>
@@ -849,25 +1033,24 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-text">
-          <span class="eyebrow">🚀 Tecnología accesible para negocios reales</span>
+          <span class="eyebrow">🚀 Punto de venta + implementación real</span>
           <h1>
-            Digitaliza tu negocio desde
-            <span class="highlight-blue">$5,000 pesos</span>
-            sin pagar sistemas caros.
+            Controla ventas, cortes e inventario
+            <span class="highlight-blue">sin comprar un sistema complicado.</span>
           </h1>
           <p>
-            En Kodevia creamos puntos de venta, páginas web, apps móviles, tiendas en línea y sistemas a la medida para emprendedores, comercios y empresas que quieren vender más, controlar mejor y gastar lo justo.
+            En Kodevia instalamos, configuramos y adaptamos tu punto de venta para tiendas, abarrotes, restaurantes, cafeterías y negocios que quieren vender mejor. No te entregamos un sistema vacío: lo dejamos funcionando con tu forma de trabajar.
           </p>
 
           <div class="hero-actions">
-            <a href="https://wa.me/5214951095594?text=Hola%20Kodevia,%20quiero%20cotizar%20un%20sistema%20para%20mi%20negocio" class="btn btn-primary">💬 Quiero cotizar por WhatsApp</a>
-            <a href="#paquetes" class="btn btn-secondary">Ver paquetes</a>
+            <a href="https://wa.me/5214951095594?text=Hola%20Kodevia,%20quiero%20cotizar%20un%20punto%20de%20venta%20para%20mi%20negocio" class="btn btn-primary">💬 Cotizar por WhatsApp</a>
+            <a href="#paquetes" class="btn btn-secondary">Ver paquetes POS</a>
           </div>
 
           <div class="trust-row">
-            <span>✅ Sin conocimientos técnicos</span>
-            <span>✅ Soporte real</span>
-            <span>✅ México y Latinoamérica</span>
+            <span>✅ Desde $13 pesos al día</span>
+            <span>✅ Soporte local y remoto</span>
+            <span>✅ Equipo propio o reacondicionado</span>
           </div>
         </div>
 
@@ -883,16 +1066,16 @@
                 <strong>$8,420</strong>
               </div>
               <div class="mini-grid">
-                <div class="mini-card"><span>Productos</span><strong>1,245</strong></div>
-                <div class="mini-card"><span>Stock bajo</span><strong>18</strong></div>
-                <div class="mini-card"><span>Pedidos web</span><strong>12</strong></div>
                 <div class="mini-card"><span>Corte</span><strong>Listo</strong></div>
+                <div class="mini-card"><span>Stock bajo</span><strong>18</strong></div>
+                <div class="mini-card"><span>Producto top</span><strong>Café 16oz</strong></div>
+                <div class="mini-card"><span>Caja</span><strong>Cuadrada</strong></div>
               </div>
             </div>
           </div>
           <div class="floating-note">
-            <strong>Desde $5,000</strong>
-            <p>Sistema inicial para comenzar a controlar tu negocio.</p>
+            <strong>Desde $2,990</strong>
+            <p>Implementación inicial + planes mensuales accesibles.</p>
           </div>
         </div>
       </div>
@@ -915,8 +1098,8 @@
 
           <article class="pain-card">
             <div class="icon">⏳</div>
-            <h3>Se te van clientes por tardarte</h3>
-            <p>Un cobro lento, una búsqueda manual o un sistema viejo puede hacerte perder ventas.</p>
+            <h3>Se pierde tiempo en cada venta</h3>
+            <p>Buscar precios manualmente, anotar en libreta o hacer cortes a mano desgasta al negocio.</p>
           </article>
 
           <article class="pain-card">
@@ -928,12 +1111,42 @@
       </div>
     </section>
 
+    <section class="section market">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Pensado para el mercado mexicano</span>
+          <h2>Software accesible para negocios que no quieren pagar de más</h2>
+          <p>Sabemos que muchos negocios pequeños no buscan tecnología complicada: necesitan control, rapidez y acompañamiento. Por eso vendemos una solución completa, no solo una licencia.</p>
+        </div>
+
+        <div class="value-grid">
+          <article class="value-card">
+            <strong>$13/día</strong>
+            <h3>Entrada accesible</h3>
+            <p>Planes desde $399 mensuales para negocios que apenas despegan y quieren ordenar su operación.</p>
+          </article>
+
+          <article class="value-card">
+            <strong>100%</strong>
+            <h3>Configurado para tu giro</h3>
+            <p>Abarrotes, tienda, restaurante, cafetería, cosméticos, papelería o servicios: lo dejamos listo para vender.</p>
+          </article>
+
+          <article class="value-card">
+            <strong>1 lugar</strong>
+            <h3>Ventas, caja e inventario</h3>
+            <p>Menos libretas, menos dudas y más claridad para decidir qué comprar, qué vender y qué mejorar.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section id="servicios" class="section services">
       <div class="container">
         <div class="section-head">
           <span class="eyebrow">Soluciones Kodevia</span>
-          <h2>No solo hacemos puntos de venta: construimos herramientas para que tu negocio crezca</h2>
-          <p>Podemos iniciar con algo sencillo y crecer contigo conforme tu negocio lo necesite.</p>
+          <h2>Inicia con un POS y crece con web, app o venta en línea</h2>
+          <p>Podemos empezar con lo esencial y después agregar módulos según tu operación, presupuesto y crecimiento.</p>
         </div>
 
         <div class="services-grid">
@@ -967,13 +1180,14 @@
     <section class="section">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow">Para negocios locales e internacionales</span>
+          <span class="eyebrow">Para negocios que venden todos los días</span>
           <h2>Hecho para emprendedores, comercios y empresas que necesitan avanzar</h2>
           <p>Trabajamos con soluciones flexibles para diferentes giros: tiendas, restaurantes, cafeterías, cosméticos, servicios, consultorios y negocios que necesitan controlar varias áreas desde un solo lugar.</p>
         </div>
 
         <div class="business-types">
           <span>Abarrotes</span>
+          <span>Minisúper</span>
           <span>Ferreterías</span>
           <span>Tiendas de ropa</span>
           <span>Farmacias</span>
@@ -995,32 +1209,33 @@
       <div class="container">
         <div class="section-head">
           <span class="eyebrow">No tener equipo ya no es excusa</span>
-          <h2>Si no tienes computadora, también te ayudamos a conseguirla</h2>
-          <p>El cliente puede poner su propio equipo. Si no cuenta con computadora, lector, impresora o accesorios, buscamos opciones funcionales a excelente precio.</p>
+          <h2>Usa tu computadora actual o te ayudamos a conseguir una opción reacondicionada</h2>
+          <p>El cliente puede poner su propio equipo. Si no cuenta con computadora, lector, impresora o accesorios, buscamos opciones funcionales a excelente precio y armamos un paquete realista.</p>
         </div>
 
         <div class="equipment-grid">
           <article class="equipment-card">
             <div class="icon">🖥️</div>
-            <h3>Equipo básico para iniciar</h3>
-            <p>Podemos orientarte para armar un paquete funcional según tu presupuesto.</p>
+            <h3>Paquete básico para iniciar</h3>
+            <p>Podemos orientarte para armar una estación de venta funcional sin gastar en equipo nuevo innecesario.</p>
             <ul class="check-list">
-              <li>Computadora o laptop optimizada</li>
+              <li>Computadora o laptop reacondicionada</li>
               <li>Lector de código de barras</li>
               <li>Impresora de tickets</li>
+              <li>Cajón de dinero opcional</li>
               <li>Configuración inicial del sistema</li>
             </ul>
           </article>
 
           <article class="equipment-card">
             <div class="icon">🧩</div>
-            <h3>Sistema a la medida</h3>
-            <p>Si tu negocio necesita algo más específico, diseñamos módulos personalizados.</p>
+            <h3>Alcance claro desde el inicio</h3>
+            <p>Definimos qué incluye tu paquete para que pagues lo justo y evitemos costos ocultos.</p>
             <ul class="check-list">
-              <li>Control de inventario, insumos o productos</li>
-              <li>Ventas, pedidos, comandas, citas o reportes</li>
-              <li>Usuarios, roles y permisos</li>
-              <li>Web, app móvil o tienda en línea</li>
+              <li>Carga inicial de productos según paquete</li>
+              <li>Capacitación para dueño y personal</li>
+              <li>Soporte por WhatsApp y asistencia remota</li>
+              <li>Visitas, módulos o cambios grandes se cotizan aparte</li>
             </ul>
           </article>
         </div>
@@ -1031,7 +1246,7 @@
       <div class="container">
         <div class="section-head">
           <span class="eyebrow">Proceso simple</span>
-          <h2>De la idea al sistema funcionando</h2>
+          <h2>De la libreta al sistema funcionando</h2>
           <p>Te acompañamos paso a paso para que no tengas que preocuparte por la parte técnica.</p>
         </div>
 
@@ -1042,13 +1257,13 @@
           </article>
 
           <article class="process-card">
-            <h3>Te proponemos un paquete</h3>
-            <p>Armamos una solución realista: básica, intermedia o completamente personalizada.</p>
+            <h3>Configuramos tu operación</h3>
+            <p>Cargamos productos, categorías, usuarios, ticket y funciones necesarias para tu giro.</p>
           </article>
 
           <article class="process-card">
-            <h3>Instalamos y capacitamos</h3>
-            <p>Configuramos tu sistema, cargamos lo esencial y te enseñamos a usarlo de forma sencilla.</p>
+            <h3>Capacitamos y damos soporte</h3>
+            <p>Te enseñamos a usarlo sin tecnicismos y te acompañamos en los primeros pasos.</p>
           </article>
         </div>
       </div>
@@ -1057,54 +1272,111 @@
     <section id="paquetes" class="section pricing">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow">Precios flexibles</span>
-          <h2>Paquetes desde $5,000 pesos y crecimiento a tu medida</h2>
-          <p>No todos los negocios necesitan lo mismo. Por eso ofrecemos soluciones escalables: empiezas con lo necesario y puedes crecer después.</p>
+          <span class="eyebrow">Precios flexibles y escalables</span>
+          <h2>Paquetes POS para empezar chico y crecer sin rehacer todo</h2>
+          <p>No todos los negocios necesitan lo mismo. Por eso separamos instalación, mensualidad y extras: así pagas por el nivel real de operación que necesitas.</p>
         </div>
 
         <div class="pricing-grid">
           <article class="pricing-card">
-            <div class="plan-name">Inicio</div>
-            <div class="plan-price">$5,000<span> desde</span></div>
-            <p>Para emprendedores que quieren empezar a controlar ventas e inventario.</p>
+            <div class="plan-name">Arranque</div>
+            <div class="plan-price">$2,990<span> implementación desde</span></div>
+            <div class="monthly">+ $399/mes</div>
+            <p>Para negocios nuevos o pequeños que quieren dejar la libreta y empezar a controlar ventas.</p>
             <ul class="check-list">
-              <li>Punto de venta básico para tienda, restaurante, cafetería o negocio de servicios</li>
-              <li>Productos e inventario inicial</li>
-              <li>Corte de caja</li>
-              <li>Capacitación básica</li>
-              <li>Soporte inicial</li>
+              <li>1 caja</li>
+              <li>Ventas básicas y corte de caja</li>
+              <li>Inventario hasta 300 productos</li>
+              <li>Ticket básico personalizado</li>
+              <li>Capacitación inicial</li>
             </ul>
-            <a href="https://wa.me/5214951095594?text=Hola%20Kodevia,%20quiero%20el%20paquete%20Inicio" class="btn btn-secondary">Solicitar inicio</a>
+            <a href="https://wa.me/5214951095594?text=Hola%20Kodevia,%20quiero%20informaci%C3%B3n%20del%20paquete%20Arranque%20POS" class="btn btn-secondary">Solicitar Arranque</a>
           </article>
 
           <article class="pricing-card featured">
             <div class="popular-tag">Más recomendado</div>
-            <div class="plan-name">Negocio</div>
-            <div class="plan-price">$12,000<span> desde</span></div>
-            <p>Para negocios que necesitan más control, reportes y operación diaria más sólida.</p>
+            <div class="plan-name">Negocio Pro</div>
+            <div class="plan-price">$4,990<span> implementación desde</span></div>
+            <div class="monthly">+ $599/mes</div>
+            <p>Para tiendas, abarrotes y comercios que ya venden diario y necesitan más orden.</p>
             <ul class="check-list">
-              <li>Todo lo del paquete Inicio</li>
-              <li>Reportes avanzados</li>
+              <li>1 a 2 cajas</li>
+              <li>Inventario hasta 800 productos</li>
               <li>Usuarios y permisos</li>
-              <li>Control de proveedores</li>
-              <li>Soporte y mejoras iniciales</li>
+              <li>Reportes de venta y stock bajo</li>
+              <li>Soporte remoto y 2 capacitaciones</li>
             </ul>
-            <a href="https://wa.me/5214951095594?text=Hola%20Kodevia,%20quiero%20el%20paquete%20Negocio" class="btn btn-primary">Quiero este paquete</a>
+            <a href="https://wa.me/5214951095594?text=Hola%20Kodevia,%20quiero%20cotizar%20el%20paquete%20Negocio%20Pro%20POS" class="btn btn-primary">Quiero este paquete</a>
           </article>
 
           <article class="pricing-card">
-            <div class="plan-name">A la medida</div>
-            <div class="plan-price">Cotizar</div>
-            <p>Para empresas que necesitan web, app móvil, tienda online o sistemas multidisciplinarios.</p>
+            <div class="plan-name">Restaurante</div>
+            <div class="plan-price">$8,990<span> implementación desde</span></div>
+            <div class="monthly">+ $899/mes</div>
+            <p>Para cafeterías, fondas y restaurantes que necesitan comandas, mesas y control por turno.</p>
             <ul class="check-list">
-              <li>Web corporativa o landing page</li>
-              <li>Menú digital, catálogo o sistema de pedidos</li>
-              <li>App móvil para tu negocio</li>
-              <li>Tienda en línea o catálogo</li>
-              <li>Integraciones y módulos especiales</li>
-              <li>Escalamiento local o internacional</li>
+              <li>Mesas, comandas y menú</li>
+              <li>Roles: mesero, caja, cocina y admin</li>
+              <li>Cortes por turno</li>
+              <li>Impresora de cocina opcional</li>
+              <li>Soporte prioritario</li>
             </ul>
-            <a href="https://wa.me/5214951095594?text=Hola%20Kodevia,%20quiero%20cotizar%20un%20sistema%20a%20la%20medida" class="btn btn-dark">Cotizar proyecto</a>
+            <a href="https://wa.me/5214951095594?text=Hola%20Kodevia,%20quiero%20cotizar%20un%20POS%20para%20restaurante%20o%20cafeter%C3%ADa" class="btn btn-secondary">Cotizar restaurante</a>
+          </article>
+
+          <article class="pricing-card dark">
+            <div class="plan-name">Llave en mano</div>
+            <div class="plan-price">$12,900<span> desde</span></div>
+            <div class="monthly">+ plan mensual</div>
+            <p>Para clientes que quieren sistema, instalación y equipo listo para empezar a vender.</p>
+            <ul class="check-list">
+              <li>Equipo reacondicionado según disponibilidad</li>
+              <li>POS instalado y configurado</li>
+              <li>Lector, impresora o accesorios opcionales</li>
+              <li>Capacitación incluida</li>
+              <li>Garantía del equipo según proveedor</li>
+            </ul>
+            <a href="https://wa.me/5214951095594?text=Hola%20Kodevia,%20quiero%20cotizar%20un%20paquete%20llave%20en%20mano%20con%20equipo" class="btn btn-primary">Armar paquete</a>
+          </article>
+        </div>
+
+        <div class="pricing-note">
+          Los precios son de referencia y pueden variar según número de productos, cajas, sucursales, equipo, visitas, módulos especiales o nivel de personalización.
+        </div>
+      </div>
+    </section>
+
+    <section class="section addons">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Extras para crecer</span>
+          <h2>Agrega solo lo que tu negocio necesite</h2>
+          <p>Tu POS puede crecer por etapas: primero controlas ventas y caja; después agregas reportes, web, pedidos o tienda en línea.</p>
+        </div>
+
+        <div class="addon-grid">
+          <article class="addon-card">
+            <span>Desde $199/mes</span>
+            <strong>Caja o usuario adicional</strong>
+            <p>Ideal cuando tu negocio empieza a operar con más personas o más puntos de cobro.</p>
+          </article>
+
+          <article class="addon-card">
+            <span>Desde $399/mes</span>
+            <strong>Sucursal adicional</strong>
+            <p>Controla varias ubicaciones sin perder visibilidad de ventas, cortes e inventario.</p>
+          </article>
+
+          <article class="addon-card">
+            <span>Desde $3,500</span>
+            <strong>Web para tu negocio</strong>
+            <p>Landing page, catálogo, servicios, ubicación y contacto directo por WhatsApp.</p>
+          </article>
+
+          <article class="addon-card">
+            <span>Desde $6,000</span>
+            <strong>Venta en línea</strong>
+            <p>Catálogo, pedidos, tienda online o flujo de venta conectado a tu operación.</p>
           </article>
         </div>
       </div>
@@ -1113,20 +1385,20 @@
     <section class="section international">
       <div class="container international-box">
         <div>
-          <span class="eyebrow">México y Latinoamérica</span>
+          <span class="eyebrow">Atención local, nacional y remota</span>
           <h2>Podemos trabajar contigo aunque no estés cerca</h2>
-          <p>Instalamos, configuramos, capacitamos y damos seguimiento de forma remota. Para negocios locales, también podemos ofrecer acompañamiento presencial según la zona.</p>
+          <p>Instalamos, configuramos, capacitamos y damos seguimiento de forma remota. Para negocios cercanos, también podemos ofrecer acompañamiento presencial según la zona.</p>
           <ul class="check-list">
-            <li>Atención para clientes locales, nacionales e internacionales</li>
-            <li>Sistemas accesibles desde internet</li>
-            <li>Soluciones listas para crecer por módulos</li>
             <li>Comunicación directa por WhatsApp</li>
+            <li>Soporte remoto para dudas y ajustes básicos</li>
+            <li>Sistemas accesibles desde internet según el paquete</li>
+            <li>Soluciones listas para crecer por módulos</li>
           </ul>
         </div>
         <div class="map-card">
           <div>
             <strong>Tu negocio conectado</strong>
-            <p>Ventas, reportes, inventario y pedidos desde donde estés.</p>
+            <p>Ventas, reportes, inventario, pedidos y seguimiento desde donde estés.</p>
           </div>
         </div>
       </div>
@@ -1136,43 +1408,82 @@
       <div class="container">
         <div class="section-head">
           <span class="eyebrow">Por qué Kodevia</span>
-          <h2>Tecnología clara, útil y sin complicarte la vida</h2>
+          <h2>Tecnología clara, útil y pensada para negocios reales</h2>
         </div>
 
         <div class="why-grid">
           <article class="why-card">
             <div class="icon">🤝</div>
-            <h3>Trato directo</h3>
-            <p>Hablamos claro, sin tecnicismos innecesarios y con enfoque en tu negocio.</p>
+            <h3>Implementación guiada</h3>
+            <p>No te dejamos solo con un sistema vacío: lo configuramos contigo.</p>
           </article>
 
           <article class="why-card">
             <div class="icon">💰</div>
             <h3>Precios accesibles</h3>
-            <p>Paquetes flexibles para empezar con poco y crecer cuando sea necesario.</p>
+            <p>Planes pensados para iniciar con poco y crecer cuando el negocio lo pida.</p>
           </article>
 
           <article class="why-card">
             <div class="icon">⚙️</div>
-            <h3>A la medida</h3>
-            <p>No forzamos tu negocio al sistema; adaptamos el sistema a tu operación.</p>
+            <h3>Adaptado a tu giro</h3>
+            <p>Tu operación manda: tienda, restaurante, cafetería, estética, abarrotes o servicios.</p>
           </article>
 
           <article class="why-card">
             <div class="icon">📈</div>
             <h3>Enfoque en control</h3>
-            <p>Más que verse bonito, el objetivo es ayudarte a vender, medir y decidir mejor.</p>
+            <p>Más que verse bonito, el objetivo es vender, medir y decidir mejor.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="contacto" class="final-cta">
+    <section id="contacto" class="section contact">
       <div class="container">
-        <h2>Cuéntanos qué negocio tienes y te decimos cómo empezar</h2>
-        <p>Te orientamos sin compromiso. Podemos iniciar con punto de venta, página web, app móvil, venta en línea o un sistema completo por etapas.</p>
+        <div class="section-head">
+          <span class="eyebrow">Contacto</span>
+          <h2>Cuéntanos qué negocio tienes y te decimos cómo empezar</h2>
+          <p>Te orientamos sin compromiso. Podemos iniciar con punto de venta, página web, app móvil, venta en línea o un sistema completo por etapas.</p>
+        </div>
+
+        <div class="contact-grid">
+          <article class="contact-card">
+            <div class="icon">💬</div>
+            <div>
+              <h3>WhatsApp</h3>
+              <p>Escríbenos y cuéntanos tu giro, productos, equipo disponible y presupuesto.</p>
+              <a href="https://wa.me/5214951095594?text=Hola%20Kodevia,%20quiero%20una%20cotizaci%C3%B3n%20para%20mi%20negocio">Abrir WhatsApp →</a>
+            </div>
+          </article>
+
+          <article class="contact-card">
+            <div class="icon">✉️</div>
+            <div>
+              <h3>Correo</h3>
+              <p>Envíanos más detalles si quieres una propuesta por escrito.</p>
+              <a href="mailto:mentorlinksr12@outlook.com?subject=Cotización%20Kodevia%20POS">Enviar correo →</a>
+            </div>
+          </article>
+
+          <article class="contact-card">
+            <div class="icon">📍</div>
+            <div>
+              <h3>Atención</h3>
+              <p>Servicio local, nacional y remoto para negocios que quieren digitalizarse.</p>
+              <a href="#paquetes">Ver paquetes disponibles</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="container">
+        <h2>Empieza con lo esencial. Crece cuando tu negocio lo necesite.</h2>
+        <p>Un punto de venta no debe ser un gasto pesado: debe ayudarte a recuperar control, reducir errores y tomar mejores decisiones todos los días.</p>
         <div class="final-actions">
-          <a href="https://wa.me/5214951095594?text=Hola%20Kodevia,%20quiero%20una%20cotizaci%C3%B3n%20para%20mi%20negocio" class="btn btn-primary">💬 Hablar por WhatsApp</a>
+          <a href="https://wa.me/5214951095594?text=Hola%20Kodevia,%20quiero%20cotizar%20un%20punto%20de%20venta%20para%20mi%20negocio" class="btn btn-primary">💬 Hablar por WhatsApp</a>
           <a href="mailto:mentorlinksr12@outlook.com?subject=Cotización%20Kodevia" class="btn btn-secondary">Enviar correo</a>
         </div>
       </div>
@@ -1183,8 +1494,7 @@
     <div class="container footer-grid">
       <div>
         <a href="#" class="logo" style="color: white; margin-bottom: 12px;">
-          <span class="logo-mark">∞</span>
-          Kode<span>via</span>
+          Kodevia
         </a>
         <p>Desarrollo de software, páginas web, apps móviles, puntos de venta y soluciones digitales para negocios.</p>
       </div>
@@ -1202,9 +1512,9 @@
       <div>
         <h4>Contacto</h4>
         <div class="footer-links">
-          <a href="https://wa.me/5214951095594">WhatsApp</a>
-          <a href="mailto:mentorlinksr12@outlook.com">mentorlinksr12@outlook.com</a>
-          <a href="#paquetes">Ver paquetes</a>
+          <a href="https://wa.me/5214951095594?text=Hola%20Kodevia,%20quiero%20cotizar%20un%20sistema">💬 WhatsApp</a>
+          <a href="mailto:mentorlinksr12@outlook.com?subject=Cotización%20Kodevia">✉️ Correo</a>
+          <a href="#paquetes">📦 Ver paquetes</a>
         </div>
       </div>
     </div>
